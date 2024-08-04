@@ -20,5 +20,5 @@ const loginUser = async (email, password) => {
 
 }
 
-module.exports = { getAllUsers,registerUser, loginUser }
+module.exports = { getAllUsers, registerUser, loginUser }
 // module.exports = { getAllUsers, register, loginUser }

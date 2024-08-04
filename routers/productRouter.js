@@ -44,7 +44,7 @@ productsRouter.put('/update', async (req, res) => {
 productsRouter.delete('/delete/:id', async (req, res) => {
     const id = req.params.id;
     try {
-        const product = await deleteProduct(id)
+        const product = await deleteProduct(id);
         const products = await getAllProducts();
         res.status(200).send({ success: true, product: products });
     } catch (error) {
