@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const { mySqlConnection, promiseQuery } = require("./db/sql")
 const { usersRouter } = require("./routers/userRouter");
-
+const { productsRouter } = require("./routers/productRouter");
 
 const app = express();
 const PORT = 8081;
@@ -15,7 +15,7 @@ app.use(cors());
 
 
 app.use("/user", usersRouter);
-
+app.use("/product", productsRouter)
 
 app.listen(PORT, (err) => {
     if (err) {

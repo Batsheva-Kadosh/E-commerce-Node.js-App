@@ -9,14 +9,14 @@ const getAllProduct = async () => {
     return result;
 }
 
-const addProduct = async ({ id, name, descproduct, img, price, inStock }) => {
-    const result = await promiseQuery(`insert into store.users 
+const add = async ({ id, name, descproduct, img, price, inStock }) => {
+    const result = await promiseQuery(`insert into store.products 
     VALUES (${id}, '${name}', '${descproduct}','${img}', ${price}, ${inStock})`);
     return result;
 }
 
 // לעדכן מוצר קיים איך עושים את זה?
-const updateProduct = async ({ id, name, descproduct, img, price, inStock }) => {
+const update = async ({ id, name, descproduct, img, price, inStock }) => {
     const result = await promiseQuery(`UPDATE store.products
     SET name ='${name}',descproduct = '${descproduct}', img  = '${img}',price = ${price}, inStock= ${inStock}
     WHERE id = ${id}; `)
@@ -24,8 +24,9 @@ const updateProduct = async ({ id, name, descproduct, img, price, inStock }) => 
 
 }
 
-const deleteProduct = async (id) => {
+const deleteP = async (id) => {
     const result = await promiseQuery(`DELETE FROM store.products
-    WHERE id = ${id}; `)
+    WHERE id = ${id};`)
     return result;
 }
+module.exports = { getAllProduct, add, update, deleteP };
